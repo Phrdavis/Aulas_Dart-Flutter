@@ -1,16 +1,12 @@
 import 'dart:math';
 
-void executar({required Function fnPar, required Function fnImpar}){
-  var sorteado = Random().nextInt(10);
-  print("O valor sorteado foi $sorteado");
-  sorteado % 2 == 0 ? fnPar() : fnImpar();
+void executar(Function fnPar, Function fnImpar) {
+  Random().nextInt(10) % 2 == 0 ? fnPar() : fnImpar();
 }
 
+main() {
+  var minhafnPar = () => print("Eita! O valor é par");
+  var minhafnImpar = () => print("Eita! O valor é impar");
 
-main(){
-  var minhaFnPar = () => print("Eita! O valor é par!");
-  var minhaFnImpar = () => print("Legal!O valor é ímpar!");
-
-  executar(fnImpar: minhaFnImpar, fnPar: minhaFnPar);
+  executar(minhafnPar, minhafnImpar);
 }
-
